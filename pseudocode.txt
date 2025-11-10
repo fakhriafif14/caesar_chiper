@@ -1,0 +1,127 @@
+🧩 1. Fungsi Enkripsi
+FUNCTION enkripsi_caesar(teks, kunci)
+
+
+👉 Fungsi ini bertugas mengubah teks biasa menjadi teks sandi (ciphertext) dengan cara menggeser setiap huruf sebanyak nilai kunci.
+
+Langkah-langkahnya:
+
+Buat variabel kosong hasil untuk menampung teks terenkripsi.
+
+Ulangi setiap huruf di dalam teks (FOR setiap karakter IN teks DO).
+
+Cek jenis hurufnya:
+
+Jika huruf besar (A–Z):
+
+Ubah huruf jadi angka (A=0, B=1, … Z=25).
+
+Tambah angka tersebut dengan nilai kunci, lalu mod 26 supaya tetap di rentang 0–25.
+
+Ubah lagi ke huruf hasil pergeseran.
+
+Jika huruf kecil (a–z): lakukan hal yang sama tapi dengan nilai ASCII huruf kecil.
+
+Jika spasi, angka, atau simbol, biarkan apa adanya (tidak diubah).
+
+Setelah semua huruf diproses, kembalikan hasilnya (RETURN hasil).
+
+💡 Contoh:
+
+enkripsi_caesar("Hello", 3)
+H -> K
+e -> h
+l -> o
+o -> r
+Hasil = "Khoor"
+
+🔓 2. Fungsi Dekripsi
+FUNCTION dekripsi_caesar(teks, kunci)
+
+
+👉 Fungsi ini digunakan untuk mengembalikan teks sandi menjadi teks asli.
+Caranya cukup sederhana — karena Caesar Cipher hanya pergeseran huruf, maka untuk dekripsi kita tinggal menggeser huruf ke arah sebaliknya (negatif dari kunci).
+
+💡 Contoh:
+
+dekripsi_caesar("Khoor", 3)
+K -> H
+h -> e
+o -> l
+r -> o
+Hasil = "Hello"
+
+🔍 3. Fungsi Brute Force
+FUNCTION brute_force_caesar(teks_terenkripsi)
+
+
+👉 Digunakan untuk mencoba semua kemungkinan kunci (0–25) agar bisa menemukan teks aslinya tanpa tahu kunci yang benar.
+
+Langkahnya:
+
+Tampilkan pesan bahwa program akan mencoba semua kunci.
+
+Lakukan perulangan dari kunci = 0 sampai 25.
+
+Untuk setiap kunci, lakukan dekripsi dan tampilkan hasilnya.
+
+Dari 26 hasil tersebut, kita bisa lihat mana yang paling masuk akal (teks aslinya).
+
+💡 Contoh:
+
+brute_force_caesar("Khoor")
+
+Kunci 0: Khoor
+Kunci 1: Jgnnq
+Kunci 2: Ifmmp
+Kunci 3: Hello   ← ini yang benar
+
+💻 4. Program Utama
+PROGRAM Main
+
+
+👉 Bagian ini mengatur menu utama program, supaya user bisa memilih mau enkripsi, dekripsi, brute force, atau keluar.
+
+Langkahnya:
+
+Tampilkan menu:
+
+(1) Enkripsi
+
+(2) Dekripsi
+
+(3) Brute Force
+
+(4) Keluar
+
+Berdasarkan pilihan user:
+
+Jika 1 → jalankan fungsi enkripsi_caesar
+
+Jika 2 → jalankan fungsi dekripsi_caesar
+
+Jika 3 → jalankan brute_force_caesar
+
+Jika 4 → keluar dari program
+
+Ulangi terus sampai user memilih keluar.
+
+📚 Kesimpulan
+
+Caesar Cipher bekerja dengan menggeser huruf berdasarkan nilai kunci.
+
+Operasi mod 26 digunakan agar hasil tetap di dalam abjad A–Z.
+
+Dekripsi adalah kebalikan dari enkripsi (geser mundur).
+
+Brute Force berguna untuk memecahkan sandi dengan mencoba semua kunci yang mungkin.
+
+Kompleksitasnya ringan:
+
+Enkripsi/Dekripsi: O(n)
+
+Brute Force: O(26n) → tetap efisien karena 26 itu jumlah huruf alfabet.
+
+Kalimat sederhananya:
+
+“Program ini seperti permainan geser huruf. Kalau enkripsi hurufnya digeser maju, kalau dekripsi digeser mundur. Kalau kita lupa kuncinya, brute force akan mencoba semua kemungkinan sampai menemukan hasil yang masuk akal.”

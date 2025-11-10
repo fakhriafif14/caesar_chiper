@@ -1,0 +1,221 @@
+# PENJELASAN FLOWCHART CAESAR CIPHER
+
+## GAMBARAN UMUM
+Flowchart ini menggambarkan alur kerja lengkap program Caesar Cipher yang memiliki 4 fitur utama: Enkripsi, Dekripsi, Brute Force Attack, dan Keluar.
+
+---
+
+## BAGIAN 1: MENU UTAMA
+
+### 1. **Mulai (Hijau)**
+   - Program dimulai
+   - Masuk ke tampilan menu
+
+### 2. **Tampilkan Menu**
+   - Menampilkan 4 pilihan:
+     - 1 = Enkripsi
+     - 2 = Dekripsi
+     - 3 = Brute Force
+     - 4 = Keluar
+
+### 3. **Pilih Menu (Diamond/Keputusan)**
+   - User memilih salah satu dari 4 opsi
+   - Program akan bercabang sesuai pilihan
+
+---
+
+## BAGIAN 2: ALUR ENKRIPSI (Pilihan 1)
+
+### Input
+- **Input Teks dan Kunci**
+  - User memasukkan teks yang akan dienkripsi
+  - User memasukkan kunci (angka 0-25)
+
+### Proses Enkripsi (Biru)
+1. **Untuk setiap karakter**
+   - Program membaca teks karakter per karakter
+   
+2. **Cek: Huruf?**
+   - Jika YA → Geser karakter
+   - Jika TIDAK → Biarkan tidak berubah
+
+3. **Geser karakter sebesar kunci mod 26**
+   - Huruf digeser sesuai nilai kunci
+   - Menggunakan modulo 26 agar tetap dalam alfabet
+
+4. **Tambahkan ke hasil**
+   - Karakter yang sudah diproses ditambahkan ke hasil
+
+5. **Masih ada karakter?**
+   - Jika YA → Kembali ke langkah 1
+   - Jika TIDAK → Lanjut tampilkan hasil
+
+### Output
+- **Tampilkan Hasil Enkripsi**
+  - Menampilkan teks terenkripsi
+  - Kembali ke menu utama
+
+---
+
+## BAGIAN 3: ALUR DEKRIPSI (Pilihan 2)
+
+### Input
+- **Input Teks Terenkripsi dan Kunci**
+  - User memasukkan teks terenkripsi
+  - User memasukkan kunci yang sama saat enkripsi
+
+### Proses Dekripsi (Biru)
+1. **Untuk setiap karakter**
+   - Program membaca teks karakter per karakter
+   
+2. **Cek: Huruf?**
+   - Jika YA → Geser karakter mundur
+   - Jika TIDAK → Biarkan tidak berubah
+
+3. **Geser karakter sebesar -kunci mod 26**
+   - Huruf digeser mundur (kunci negatif)
+   - Menggunakan modulo 26
+
+4. **Tambahkan ke hasil**
+   - Karakter yang sudah diproses ditambahkan ke hasil
+
+5. **Masih ada karakter?**
+   - Jika YA → Kembali ke langkah 1
+   - Jika TIDAK → Lanjut tampilkan hasil
+
+### Output
+- **Tampilkan Hasil Dekripsi**
+  - Menampilkan teks asli (terdekripsi)
+  - Kembali ke menu utama
+
+---
+
+## BAGIAN 4: ALUR BRUTE FORCE (Pilihan 3)
+
+### Input
+- **Input Teks Terenkripsi**
+  - User hanya memasukkan teks terenkripsi
+  - Tidak perlu memasukkan kunci (karena tidak tahu)
+
+### Proses Brute Force (Kuning)
+1. **Set kunci = 0**
+   - Mulai dengan kunci 0
+
+2. **Cek: kunci < 26?**
+   - Jika YA → Lanjut dekripsi
+   - Jika TIDAK → Selesai
+
+3. **Dekripsi dengan kunci saat ini**
+   - Dekripsi teks menggunakan kunci yang sedang dicoba
+
+4. **Tampilkan hasil dengan kunci**
+   - Menampilkan: "Kunci X: [hasil dekripsi]"
+
+5. **kunci = kunci + 1**
+   - Increment kunci untuk iterasi berikutnya
+
+6. **Kembali ke pengecekan kunci**
+   - Loop sampai mencoba semua 26 kunci
+
+### Output
+- **Selesai Brute Force**
+  - Semua 26 kemungkinan sudah ditampilkan
+  - User memilih hasil yang paling masuk akal
+  - Kembali ke menu utama
+
+---
+
+## BAGIAN 5: KELUAR (Pilihan 4)
+
+- **Selesai (Pink)**
+  - Program berhenti
+  - Tidak kembali ke menu
+
+---
+
+## PENJELASAN SIMBOL FLOWCHART
+
+| Simbol | Bentuk | Fungsi |
+|--------|--------|--------|
+| **Terminal** | Oval (Hijau/Pink) | Mulai/Selesai program |
+| **Proses** | Persegi Panjang (Biru/Kuning) | Operasi/kalkulasi |
+| **Input/Output** | Jajar Genjang | Input dari user/Output ke layar |
+| **Keputusan** | Diamond | Kondisi Ya/Tidak |
+| **Panah** | → | Alur proses |
+
+---
+
+## ALUR LOOP/PERULANGAN
+
+### Loop 1: Menu Utama
+- Setelah selesai enkripsi/dekripsi/brute force → **Kembali ke Menu**
+- Program terus berjalan sampai user pilih "Keluar"
+
+### Loop 2: Proses Karakter (Enkripsi & Dekripsi)
+- **"Masih ada karakter?"**
+  - YA → Kembali ke "Untuk setiap karakter"
+  - TIDAK → Tampilkan hasil
+
+### Loop 3: Brute Force
+- **"kunci < 26?"**
+  - YA → Dekripsi lagi dengan kunci berikutnya
+  - TIDAK → Selesai
+
+---
+
+## PERBEDAAN ENKRIPSI VS DEKRIPSI
+
+| Aspek | Enkripsi | Dekripsi |
+|-------|----------|----------|
+| **Input** | Teks biasa + Kunci | Teks terenkripsi + Kunci |
+| **Proses** | Geser +kunci | Geser -kunci |
+| **Output** | Teks terenkripsi | Teks asli |
+
+---
+
+## KEUNGGULAN DESAIN FLOWCHART INI
+
+✅ **Modular** - Setiap fitur punya alur sendiri yang jelas
+
+✅ **Loop-back** - Setelah selesai kembali ke menu, user bisa pilih lagi
+
+✅ **Validasi** - Ada pengecekan huruf/bukan untuk setiap karakter
+
+✅ **Efisien** - Brute force otomatis mencoba 26 kunci tanpa input berulang
+
+✅ **User-friendly** - Alur jelas dari input → proses → output
+
+---
+
+## CONTOH EKSEKUSI MENGIKUTI FLOWCHART
+
+### Skenario 1: Enkripsi
+```
+Mulai → Menu → Pilih 1 → Input "Hello" & kunci 3 
+→ Proses Enkripsi → Hasil "Khoor" → Kembali ke Menu
+```
+
+### Skenario 2: Dekripsi
+```
+Mulai → Menu → Pilih 2 → Input "Khoor" & kunci 3 
+→ Proses Dekripsi → Hasil "Hello" → Kembali ke Menu
+```
+
+### Skenario 3: Brute Force
+```
+Mulai → Menu → Pilih 3 → Input "Khoor"
+→ Loop (kunci 0-25) → Tampilkan 26 hasil 
+→ User lihat kunci 3 = "Hello" → Kembali ke Menu
+```
+
+---
+
+## KESIMPULAN
+
+Flowchart ini menggambarkan sistem Caesar Cipher yang lengkap dengan:
+- Interface menu yang user-friendly
+- 3 fungsi utama yang terpisah tapi terintegrasi
+- Loop yang efisien untuk brute force
+- Kembali ke menu untuk penggunaan berulang
+
+Desain ini memudahkan implementasi ke dalam kode program karena alurnya sudah jelas dan terstruktur.
